@@ -23,12 +23,14 @@ def estilo_rainbow(text, isArquivo=False):
         rprint(f'[{cor_atual}]{line}')
     
 def read_text_lines(text, isArquivo):
+    '''lê separadamente as linhas do texto/arquivo'''
     if isArquivo:
         with open(text, 'r') as file:
             return file.readlines()
     return text.splitlines()
 
 def read_text(text, isArquivo):
+    '''Lê texto/arquivo'''
     if isArquivo:
         with open(text, 'r') as f:
             return f.read()

@@ -1,3 +1,14 @@
+'''
+    Estilizar texto/arquivo com base nos argumentos passados por comando
+
+    Foi feito utilizando a biblioteca -rich-, que permite personalizar as saídas no terminal. Esse programa é focado especificamente nas funções: estilo, layout, painel e progresso.
+
+    Ao executar o programa, é necessário especificar o módulo e função desejados, por nome ou id, (podem ser conferidos passando a opção -h) para que o programa rode.
+
+    exemplo de uso: 
+        python3 main.py -a exemplo.txt -m 4 -f 2
+'''
+
 import personalizador as ps
 import argparse
 import sys
@@ -36,28 +47,25 @@ def Main():
         '--funcao',
         help='''    Escolhe a função do módulo que quer acessar (por nome ou por id).
     [1]layout -> [1]print_layout
-    [2]painel -> [1]painel_simples, [2]painel_com_borda
-    [3]progresso -> [1]barra_progresso, [2]barra_progresso_tasks'''
+    [2]painel -> [1]painel_simples
+    [3]progresso -> [1]barra_progresso, [2]barra_progresso_tasks
+    [4]estilo -> [1]estilo_negrito, [2]estilo_rainbow'''
     )
 
     args = parser.parse_args()
 
+    #colocar apenas função sem especificar o módulo resultará no encerramento do programa
     if args.funcao and not args.modulo:
         print("Erro: Você deve especificar um módulo com a opção -m antes de usar -f.")
         sys.exit(1)
 
+    #como as funções layout e painel só possuem uma função acessível por comando, decidi que ativarão apenas chamando o módulo, sem precisar especificar a função
     if args.modulo == 'layout' or args.modulo == '1':
         la.print_layout(args.filename, args.arquivo)
-
     elif args.modulo == 'painel' or args.modulo == '2':
-        if args.funcao == 'painel_simples' or args.funcao == '1':
-            pa.painel_simples(args.filename, args.arquivo)
-        elif args.funcao == 'painel_com_borda' or args.funcao == '2':
-            pa.painel_com_borda(args.filename, args.arquivo)
-        else:
-            print("Erro: Função não reconhecida no módulo painel.")
-            sys.exit(1)
+        pa.painel_simples(args.filename, args.arquivo)
 
+    #O restante das funções precisam obrigatoriamente serem especificadas, ou resultará em erro
     elif args.modulo == 'progresso' or args.modulo == '3':
         if args.funcao == 'barra_progresso' or args.funcao == '1':
             pr.barra_progresso(args.filename, args.arquivo)
@@ -66,7 +74,6 @@ def Main():
         else:
             print("Erro: Função não reconhecida no módulo progresso.")
             sys.exit(1)
-
     elif args.modulo == 'estilo' or args.modulo == '4':
         if args.funcao == 'estilo_negrito' or args.funcao == '1':
             es.estilo_negrito(args.filename, args.arquivo)
@@ -77,7 +84,7 @@ def Main():
             sys.exit(1)
 
     else:
-        print("Erro: Módulo ou função não especificados corretamente.")
+        print("Erro: Módulo não especificado corretamente.")
         sys.exit(1)
 
 
