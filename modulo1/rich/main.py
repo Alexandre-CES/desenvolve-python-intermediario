@@ -70,8 +70,8 @@ def Main():
     elif args.modulo == 'estilo' or args.modulo == '4':
         if args.funcao == 'estilo_negrito' or args.funcao == '1':
             es.estilo_negrito(args.filename, args.arquivo)
-        elif args.funcao == 'estilo_sublinhado' or args.funcao == '2':
-            es.estilo_sublinhado(args.filename, args.arquivo)
+        elif args.funcao == 'estilo_rainbow' or args.funcao == '2':
+            es.estilo_rainbow(args.filename, args.arquivo)
         else:
             print("Erro: Função não reconhecida no módulo estilo.")
             sys.exit(1)
