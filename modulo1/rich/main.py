@@ -36,7 +36,8 @@ def Main():
         '--funcao',
         help='''    Escolhe a função do módulo que quer acessar (por nome ou por id).
     [1]layout -> [1]print_layout
-    [2]painel -> [1]painel_simples, [2]painel_com_borda'''
+    [2]painel -> [1]painel_simples, [2]painel_com_borda
+    [3]progresso -> [1]barra_progresso, [2]barra_progresso_tasks'''
     )
 
     args = parser.parse_args()
@@ -49,27 +50,27 @@ def Main():
         la.print_layout(args.filename, args.arquivo)
 
     elif args.modulo == 'painel' or args.modulo == '2':
-        if args.funcao == 'painel_simples':
+        if args.funcao == 'painel_simples' or args.funcao == '1':
             pa.painel_simples(args.filename, args.arquivo)
-        elif args.funcao == 'painel_com_borda':
+        elif args.funcao == 'painel_com_borda' or args.funcao == '2':
             pa.painel_com_borda(args.filename, args.arquivo)
         else:
             print("Erro: Função não reconhecida no módulo painel.")
             sys.exit(1)
 
     elif args.modulo == 'progresso' or args.modulo == '3':
-        if args.funcao == 'barra_progresso':
+        if args.funcao == 'barra_progresso' or args.funcao == '1':
             pr.barra_progresso(args.filename, args.arquivo)
-        elif args.funcao == 'barra_personalizada':
-            pr.barra_personalizada(args.filename, args.arquivo)
+        elif args.funcao == 'barra_progresso_tasks' or args.funcao == '2':
+            pr.barra_progresso_tasks(args.filename, args.arquivo)
         else:
             print("Erro: Função não reconhecida no módulo progresso.")
             sys.exit(1)
 
     elif args.modulo == 'estilo' or args.modulo == '4':
-        if args.funcao == 'estilo_negrito':
+        if args.funcao == 'estilo_negrito' or args.funcao == '1':
             es.estilo_negrito(args.filename, args.arquivo)
-        elif args.funcao == 'estilo_sublinhado':
+        elif args.funcao == 'estilo_sublinhado' or args.funcao == '2':
             es.estilo_sublinhado(args.filename, args.arquivo)
         else:
             print("Erro: Função não reconhecida no módulo estilo.")
