@@ -1,3 +1,9 @@
+'''
+    Imprime o conteúdo dividido em partes
+
+    Está dividido em três funções, uma para ler o arquivo, outra para dividi-lo, outra para imprimi-lo
+'''
+
 from rich.layout import Layout
 from rich.console import Console
 

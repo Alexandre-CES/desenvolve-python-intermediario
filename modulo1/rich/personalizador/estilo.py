@@ -1,3 +1,9 @@
+'''
+    Aplicar estilos no texto
+
+    além da biblioteca rich, utilizei a itertools para fazer o efeito da função estilo_rainbow
+'''
+
 from rich import print as rprint  
 from itertools import cycle
 

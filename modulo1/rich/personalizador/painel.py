@@ -1,3 +1,7 @@
+'''
+    Imprime o texto em um único painel com título, subtítulo e borda colorida
+'''
+
 from rich import print
 from rich.panel import Panel
 

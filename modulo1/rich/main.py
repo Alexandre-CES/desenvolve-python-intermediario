@@ -19,7 +19,10 @@ pa = ps.painel
 pr = ps.progresso
 
 def Main():
-
+    '''Função principal
+    
+    Aqui foi feito a inicialização dos argumentos, bem como a lógica de escolha dos módulos e funções
+    '''
     parser = argparse.ArgumentParser(
         description="Programa para imprimir texto ou conteúdo de arquivo usando Rich com opções de módulos e funções personalizadas.",
         formatter_class=argparse.RawTextHelpFormatter
