@@ -1,0 +1,3 @@
+import aventura_pkg.jogador
+import aventura_pkg.labirinto
+import aventura_pkg.utils
