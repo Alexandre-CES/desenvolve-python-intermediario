@@ -29,10 +29,13 @@ def tela_inicial():
         rprint('[1]Jogar - [2]Instruções')
         opt = Prompt.ask('Escolha',choices=['1','2'], show_choices=True)
 
-        if opt == '2':
-            imprimir_instrucoes()
-        else:
-            return
+        match opt:
+            case '1':
+                return
+            case '2':
+                imprimir_instrucoes()
+            case outro:
+                rprint(f'{outro} não é uma opção válida! ')
 
 def read_file(filename):
     '''Para ler o arquivo'''

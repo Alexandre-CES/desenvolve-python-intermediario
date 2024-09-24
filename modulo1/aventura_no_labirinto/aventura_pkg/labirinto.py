@@ -1,6 +1,5 @@
 from . import utils
 from rich import print as rprint
-from rich.text import Text
 
 class Labirinto:
     '''Representa o labirinto'''
@@ -20,10 +19,17 @@ class Labirinto:
         else:
             self.labirinto = utils.read_file_lines('labirinto_dificil.txt')
 
-    def imprimir_labirinto(self):
-        '''Imprime o labirinto'''
-        for i in self.labirinto:
-            rprint(Text(i, justify='full'), end='')
+    def imprimir_labirinto(self, pos):
+        '''Imprime o labirinto
         
-        print()
+        Recebe uma tupla (x,y) que determina a posição em que o jogador está atualmente, que será imprimida no terminal junto ao labirinto'''
+        
+        x,y = pos
+        for i in range(len(self.labirinto)):
+            for j in range(len(self.labirinto[i])):
+                if i == y and j == x:
+                    rprint('[yellow]o', end='')
+                elif self.labirinto[i][j] != '\n':
+                    rprint(self.labirinto[i][j], end='')
 
+            print()

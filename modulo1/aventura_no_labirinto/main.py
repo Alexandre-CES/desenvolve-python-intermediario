@@ -25,7 +25,7 @@ def Main():
     #iniciar jogador
     jogador.iniciar_jogador()
 
-    labirinto.imprimir_labirinto()
+    labirinto.imprimir_labirinto((1,0))
 
 
 if __name__ == '__main__':
