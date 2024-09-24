@@ -1,4 +1,6 @@
 from . import utils
+from rich import print as rprint
+from rich.text import Text
 
 class Labirinto:
     '''Representa o labirinto'''
@@ -21,7 +23,7 @@ class Labirinto:
     def imprimir_labirinto(self):
         '''Imprime o labirinto'''
         for i in self.labirinto:
-            print(i, end='')
+            rprint(Text(i, justify='full'), end='')
         
         print()
 

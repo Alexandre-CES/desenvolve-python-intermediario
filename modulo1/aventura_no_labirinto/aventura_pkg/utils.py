@@ -1,6 +1,7 @@
+import argparse
 from rich import print as rprint
 from rich.panel import Panel
-import argparse
+from rich.prompt import Prompt
 
 def args():
     '''Adiciona os argumentos no argparser, os retornando em seguida'''
@@ -20,6 +21,18 @@ def args():
     )
 
     return parser.parse_args()
+
+def tela_inicial():
+    '''Menu inicial'''
+    while True:
+        rprint('Aventura no labirinto')
+        rprint('[1]Jogar - [2]Instruções')
+        opt = Prompt.ask('Escolha',choices=['1','2'], show_choices=True)
+
+        if opt == '2':
+            imprimir_instrucoes()
+        else:
+            return
 
 def read_file(filename):
     '''Para ler o arquivo'''
@@ -45,3 +58,4 @@ def imprimir_instrucoes():
         border_style='bold magenta'
     )
     rprint(panel)
+    input('(Enter)Retornar...');print()

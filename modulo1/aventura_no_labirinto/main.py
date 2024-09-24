@@ -16,13 +16,16 @@ def Main():
     labirinto = lab.Labirinto()
     jogador = jog.Jogador()
 
-    #Iniciando labirinto e jogador
+    #Iniciando labirinto
     labirinto.criar_labirinto(args.dificuldade)
+
+    #Começando jogo pelo menu
+    uti.tela_inicial()
+
+    #iniciar jogador
     jogador.iniciar_jogador()
 
     labirinto.imprimir_labirinto()
-
-    uti.imprimir_instrucoes()
 
 
 if __name__ == '__main__':

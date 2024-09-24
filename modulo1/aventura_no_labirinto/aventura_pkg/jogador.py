@@ -14,7 +14,7 @@ class Jogador:
     def iniciar_jogador(self):
         '''Inicia o nome, posição e pontuação do personagem'''
 
-        self.nome = Prompt.ask('Nome do personagem: ')
+        self.nome = Prompt.ask('Nome do personagem');print()
         self.posicao = (1, 0)
         self.pontuacao = 0
 
