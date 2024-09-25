@@ -4,10 +4,6 @@ from rich.prompt import Prompt
 class Jogador:
     '''Representa o jogador'''
 
-    nome = ''
-    posicao = ()
-    movimentos = 0
-
     def __init__(self):
         self.nome, self.posicao, self.movimentos = '', (), 0
 

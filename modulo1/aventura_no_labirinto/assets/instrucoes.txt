@@ -1,6 +1,5 @@
-em construção
+Para jogar, basta apertar as setas do teclado (cima,baixo,esquerda,direita).
 
+Cada ação gerará um novo labirinto com a sua nova posição, até que enfim você chegue no final e o jogo finalize, mostrando o placar.
 
-
-
-teste
+Você só conseguirar se mover quando o labirinto for totalmente gerado

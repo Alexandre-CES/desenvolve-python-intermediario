@@ -25,9 +25,9 @@ def args():
 def tela_inicial():
     '''Menu inicial'''
     while True:
-        rprint('Aventura no labirinto')
+        rprint('\nAventura no labirinto\n')
         rprint('[1]Jogar - [2]Instruções')
-        opt = Prompt.ask('Escolha',choices=['1','2'], show_choices=True)
+        opt = Prompt.ask('Escolha',choices=['1','2'], show_choices=True);print()
 
         match opt:
             case '1':
@@ -37,10 +37,21 @@ def tela_inicial():
             case outro:
                 rprint(f'{outro} não é uma opção válida! ')
 
+def finalizar_jogo(jogador, dificuldade):
+    nome, movimentos, posicao = jogador.retornar_jogador()
+
+    panel = Panel.fit(
+        f'O jogador [purple]{nome}[/purple] finalizou o modo [purple]{dificuldade}[/purple] com o total de [purple]{movimentos}[/purple] movimentos na posição [purple]{posicao}[/purple]',
+        title='Parabéns!',
+        subtitle='As vezes é necessário dar um passo para trás para dar dois para frente',
+        border_style='yellow'
+    )
+    rprint(panel)
+
 def read_file(filename):
     '''Para ler o arquivo'''
     fileStr = ''
-    with open(f'./assets/{filename}', 'r') as file:
+    with open(f'./assets/{filename}', 'r', encoding='utf-8') as file:
         fileStr = file.read()
         return fileStr
 
@@ -55,7 +66,8 @@ def imprimir_instrucoes():
     '''Imprime as instruções do jogo'''
 
     instrucoes = read_file('instrucoes.txt')
-    panel = Panel.fit(instrucoes,
+    panel = Panel.fit(
+        instrucoes,
         title='Instruções',
         subtitle='Se divirta!',
         border_style='bold magenta'
