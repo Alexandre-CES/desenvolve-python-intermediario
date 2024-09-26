@@ -2,6 +2,8 @@ import sys
 from . import utils
 from rich import print as rprint
 
+args = utils.args()
+
 class Labirinto:
     '''Representa o labirinto'''
 
@@ -38,8 +40,8 @@ class Labirinto:
         for i in range(len(self.labirinto)):
             for j in range(len(self.labirinto[i])):
                 if i == y and j == x:
-                    rprint('[yellow]o', end='')
+                    rprint(f'[{args.secundary_color}]o', end='')
                 elif self.labirinto[i][j] != '\n':
-                    rprint(self.labirinto[i][j], end='')
+                    rprint(f'[{args.primary_color}]{self.labirinto[i][j]}', end='')
 
             print()

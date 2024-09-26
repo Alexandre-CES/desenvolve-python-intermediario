@@ -12,6 +12,13 @@ def args():
     )
 
     parser.add_argument(
+        '-n',
+        '--nome',
+        default='Jogador',
+        help='Escolher o nome do jogador'
+    )
+
+    parser.add_argument(
         '-d',
         '--dificuldade',
         type=int,
@@ -20,12 +27,34 @@ def args():
         help='Determina o tamanho do labirinto'
     )
 
+    parser.add_argument(
+        '-c1',
+        '--primary_color',
+        default='yellow',
+        help='Escolhe a cor primário'
+    )
+
+    parser.add_argument(
+        '-c2',
+        '--secundary_color',
+        help='Escolhe a cor secundária'
+    )
+
+    parser.add_argument(
+        '-s',
+        '--sound',
+        action='store_true',
+        help='Ativa música no jogo'
+    )
+
     return parser.parse_args()
 
 def tela_inicial():
     '''Menu inicial'''
+
+    arg = args()
     while True:
-        rprint('\nAventura no labirinto\n')
+        rprint(f'\n[{arg.primary_color}]Aventura no labirinto[/{arg.primary_color}]\n')
         rprint('[1]Jogar - [2]Instruções')
         opt = Prompt.ask('Escolha',choices=['1','2'], show_choices=True);print()
 
@@ -38,13 +67,16 @@ def tela_inicial():
                 rprint(f'{outro} não é uma opção válida! ')
 
 def finalizar_jogo(jogador, dificuldade):
+    '''Mostra informações do jogador em uma tela de finalização'''
+    
+    arg = args()
     nome, movimentos, posicao = jogador.retornar_jogador()
 
     panel = Panel.fit(
-        f'O jogador [purple]{nome}[/purple] finalizou o modo [purple]{dificuldade}[/purple] com o total de [purple]{movimentos}[/purple] movimentos na posição [purple]{posicao}[/purple]',
+        f'O jogador [{arg.secundary_color}]{nome}[/{arg.secundary_color}] finalizou o modo [{arg.secundary_color}]{dificuldade}[/{arg.secundary_color}] com o total de [{arg.secundary_color}]{movimentos}[/{arg.secundary_color}] movimentos na posição [{arg.secundary_color}]{posicao}[/{arg.secundary_color}]',
         title='Parabéns!',
         subtitle='As vezes é necessário dar um passo para trás para dar dois para frente',
-        border_style='yellow'
+        border_style=arg.primary_color
     )
     rprint(panel)
 

@@ -1,10 +1,13 @@
 ''' Jogo: Aventura no labirinto
 
-    Foi feito para ser jogado interagindo com o terminal. Para isso, foi utilizado a biblioteca pynput para obter inputs do terminal e a biblioteca rich para deixa-lo mais bonito
+    Foi feito para ser jogado interagindo com o terminal. Para isso, foi utilizado a biblioteca pynput para monitorar inputs do terminal e ajudar na movimentação do jogador e a biblioteca rich para deixa-lo mais bonito
+
 '''
 import sys
 import aventura_pkg
 from pynput import keyboard
+import simpleaudio as sa
+import threading
 
 lab = aventura_pkg.labirinto
 jog = aventura_pkg.jogador
@@ -22,6 +25,9 @@ class JogoAventuraLabirinto:
 
         args = uti.args()
 
+        if args.sound:
+            threading.Thread(target=self.tocar_som).start()
+
         #Iniciando labirinto
         self.labirinto.criar_labirinto(args.dificuldade)
 
@@ -29,7 +35,7 @@ class JogoAventuraLabirinto:
         uti.tela_inicial()
 
         #iniciar jogador
-        self.jogador.iniciar_jogador()
+        self.jogador.iniciar_jogador(args.nome)
 
         #iniciando jogo
         self.andando_no_labirinto()
@@ -89,6 +95,13 @@ class JogoAventuraLabirinto:
             print('índice passando do limite')
         
         return False #Parar de monitorar 
+
+    def tocar_som(self):
+        '''Toca a música colocada nos assets'''
+        
+        wave_obj = sa.WaveObject.from_wave_file('./assets/sound.wav')
+        play_obj = wave_obj.play()
+        return play_obj
 
 if __name__ == '__main__':
     jogo = JogoAventuraLabirinto()
