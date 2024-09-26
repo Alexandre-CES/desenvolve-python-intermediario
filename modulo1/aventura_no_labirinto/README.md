@@ -1,6 +1,6 @@
 # Aventura no Labirinto
 
-![Jogo Aventura no Labirinto](./assets/aventura_labirinto.jpeg)
+![Jogo Aventura no Labirinto](./assets/aventura_labirinto.jpg)
 
 ## Descrição
 
@@ -49,12 +49,12 @@
     python main.py --parâmetro1 [argumento] --parâmetro2 [argumento]...
 
 2. Então você verá o menu incial:
-    ![Jogo Aventura no Labirinto](./assets/instrucoes.jpeg)
+    ![Jogo Aventura no Labirinto](./assets/instrucoes.jpg)
 
     Você pode escolher 2 para ver as instruções do jogo ou ir logo para o jogo escolhendo 1
 
 3. No labirinto:
-    ![Jogo Aventura no Labirinto](./assets/labirinto.jpeg)
+    ![Jogo Aventura no Labirinto](./assets/labirinto.jpg)
    - você usará as setas do teclado para se locomover.
    - Cada ação imprimirá um novo labirinto, e você só conseguirá se mover após o print estar completo.
    - caso queira parar o jogo, basta apertar ESC
