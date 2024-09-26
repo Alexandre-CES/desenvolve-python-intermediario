@@ -1,4 +1,3 @@
-from rich.prompt import Prompt
 
 class Jogador:
     '''Representa o jogador'''
