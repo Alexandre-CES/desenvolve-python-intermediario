@@ -19,6 +19,7 @@ class JogoAventuraLabirinto:
     def __init__(self):
         self.jogador = jog.Jogador()
         self.labirinto = lab.Labirinto()
+        self.jogo_ativo = True
 
     def Main(self):
         '''Onde o jogo é iniciado, começando pelo menu'''
@@ -62,7 +63,11 @@ class JogoAventuraLabirinto:
             return
         
         #recursividade
-        self.andando_no_labirinto()
+        if self.jogo_ativo:
+            self.andando_no_labirinto()
+        else:
+            print('Tchau! ')
+            sys.exit()
 
     def on_release(self,key):
         '''Andar no labirinto
@@ -74,7 +79,7 @@ class JogoAventuraLabirinto:
         try:
             match key:
                 case keyboard.Key.esc: #Sair do jogo
-                    sys.exit()
+                    self.jogo_ativo = False
                 case keyboard.Key.up:
                     y = max(y - 1, 0)
                     if self.labirinto.labirinto[y][x] != '#':
@@ -98,7 +103,7 @@ class JogoAventuraLabirinto:
 
     def tocar_som(self):
         '''Toca a música colocada nos assets'''
-        
+
         wave_obj = sa.WaveObject.from_wave_file('./assets/sound.wav')
         play_obj = wave_obj.play()
         return play_obj
