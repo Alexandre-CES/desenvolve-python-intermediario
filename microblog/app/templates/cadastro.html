@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Cadastro</h1>
+    <form action="" method="post">
+        <div>
+            <label for="username">Usuário: </label>
+            <input type="text" name="username" required>
+        </div>
+        <div>
+            <label for="password">Senha: </label>
+            <input type="text" name="password" required>
+        </div>
+        <div>
+            <label for="confirm-password">Confirmar senha: </label>
+            <input type="text" name="confirm-password">
+        </div>
+        <div>
+            <label for="remember">
+                <input type="checkbox" name="remember" id="remember">
+                lembrar de mim
+            </label>
+        </div>
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
+{% endblock %}

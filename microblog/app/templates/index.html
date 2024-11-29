@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if user %}
+    <h1>Olá, {{ user.username }}!</h1>
+    {% else %}
+    <h1>Olá, deseja fazer login?</h1>
+    {% endif %}
+{% endblock %}
+
+
