@@ -1,0 +1,21 @@
+div#profile-picture-box{
+    text-align: center;
+
+    padding: 0.5em;
+}
+
+div#profile-picture-box img{
+    
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+}
+
+div#profile-bio{
+    text-align: center;
+}
+
+section#posts{
+    
+}

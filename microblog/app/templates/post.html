@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="center-main">
+    <form action="/post" method="post">
+        <div>
+            <label for="body"></label>
+            <textarea name="body" placeholder="post"></textarea>
+        </div>
+        <div>
+            <button type="submit">Postar</button>
+        </div>
+    </form>
+</main>
+{% endblock %}

@@ -1,0 +1,31 @@
+main.center-main{
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    border-radius: 25px 25px 15px 15px;
+    border: 1px solid var(--color5);
+}
+
+main.center-main h1{
+    border-bottom: 1px solid var(--color5);
+}
+
+main.center-main form{
+    
+}
+
+div.input-text-box-parent{
+
+}
+
+div.center-itens-box-parent > div{
+    text-align: center;
+}
+
+main.center-main form > div > div{
+    padding: 0.5em;
+}

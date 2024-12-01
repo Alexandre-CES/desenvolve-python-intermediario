@@ -2,13 +2,22 @@
 <html>
 <head>
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ids.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/classes.css') }}">
 </head>
 <body>
-    <div>Microblog
-        <a href="/">Home</a>
-        <a href="/login">Login</a>
-        <a href="/logout">Logout</a>
-    </div>
+    <nav>
+        <div>
+            <h1>Microblog</h1>
+        </div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/cadastro">Cadastro</a>
+            <a href="/login">Login</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
     <hr>
     {% block content %}{% endblock %}
 </body>

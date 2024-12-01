@@ -1,10 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-    {% if user %}
-    <h1>Olá, {{ user.username }}!</h1>
-    {% else %}
-    <h1>Olá, deseja fazer login?</h1>
-    {% endif %}
+<main>
+{% if user %}
+    <h1>Bem vindo(a) de volta, {{ user.username }}!</h1>
+    <section id="user-profile">
+        <div id="profile-picture-box">
+            {% if user.profile_picture %}
+                <img src="{{ user.profile_picture }}" alt="Foto de perfil do usuário">
+            {% else %}
+                <img src="https://i.pinimg.com/236x/a8/da/22/a8da222be70a71e7858bf752065d5cc3.jpg" alt="Foto de perfil do usuário">
+            {% endif %}
+        </div>
+        <div id="profile-bio">
+            {% if user.bio %}
+                <p>{{ user.bio }}</p>
+            {% else %}
+                <p>Sem bio</p>
+            {% endif %}
+        </div>
+    </section>
+{% else %}
+    <h1>Faça login para ter acesso aos recursos dessa página</h1>
+{% endif %}
+<hr>
+<section id="posts">
+    <button id="new-post-button"><a href="/post">Escrever post</a></button>
+    {% for post in posts %}
+        <div>
+            <h2>autor: {{ post.author }}</h2>
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+</section>
+</main>
 {% endblock %}
 
 

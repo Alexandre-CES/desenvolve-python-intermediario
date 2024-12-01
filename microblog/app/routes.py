@@ -14,12 +14,13 @@ from flask_login import (
 from app import alquimias
 
 @app.route('/')
-@login_required
 def index():
     user=None
+    posts=[]
     if current_user.is_authenticated:
         user = current_user
-    return render_template('index.html', title='Página inicial', user=user)
+        posts = alquimias.get_timeline()
+    return render_template('index.html', title='Página inicial', user=user, posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -57,8 +58,10 @@ def cadastro():
                 return redirect(url_for(f'cadastro'))
 
             remember = True if request.form.get('remember') == 'on' else False
+            profile_picture = request.form.get('profile-picture')
+            bio = request.form.get('bio')
 
-            user = alquimias.create_user(username,password,remember)
+            user = alquimias.create_user(username,password,remember,profile_picture,bio)
             login_user(user, remember=remember)
             
             return redirect(url_for(f'index'))
@@ -70,3 +73,15 @@ def logout():
     logout_user()
     return redirect(url_for(f'index'))
 
+@app.route('/post', methods=['GET','POST'])
+@login_required
+def post():
+    if request.method == 'POST':
+        body = request.form.get('body')
+        if body:
+            alquimias.create_post(body)
+            return redirect(url_for(f'index'))
+        else:
+            return redirect(url_for(f'post'))
+    else:
+        return render_template('post.html')
