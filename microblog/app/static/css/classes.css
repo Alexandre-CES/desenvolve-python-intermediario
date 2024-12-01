@@ -4,28 +4,63 @@ main.center-main{
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-40%);
 
     border-radius: 25px 25px 15px 15px;
     border: 1px solid var(--color5);
+
+    background-color: var(--color2);
 }
 
 main.center-main h1{
+    border-radius: 25px 25px 0px 0px;
     border-bottom: 1px solid var(--color5);
+    background-color: var(--color3);
 }
 
 main.center-main form{
-    
+    padding: 0.5em;
 }
 
-div.input-text-box-parent{
-
+div.input-text-box-parent input, textarea{
+    width: 100%;
 }
 
-div.center-itens-box-parent > div{
+div.center-itens-box-parent{
     text-align: center;
 }
 
 main.center-main form > div > div{
     padding: 0.5em;
+}
+
+div.post{
+    max-width: 500px;
+    margin: 30px auto;
+    border-radius: 15px;
+    border: 1px solid var(--color5);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.377);
+}
+
+div.post h3{
+    text-align: center;
+    padding: 5px;
+    border-radius: 15px 15px 0px 0px;
+    border-bottom: 1px solid var(--color5);
+
+    background-color: var(--color3);
+}
+
+div.post p{
+    padding: 10px;
+}
+
+form#post-form textarea{
+    min-width: 500px;
+    min-height: 300px;
+
+    margin: 10px 0px;
+    padding: 10px;
+
+    border-radius: 15px;
 }

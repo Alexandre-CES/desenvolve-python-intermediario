@@ -17,5 +17,10 @@ div#profile-bio{
 }
 
 section#posts{
-    
+    margin: 10px 0px;
+    padding: 10px;
+}
+
+section#posts div:first-child{
+    text-align: center;
 }

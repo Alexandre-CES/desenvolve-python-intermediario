@@ -24,12 +24,16 @@
 {% endif %}
 <hr>
 <section id="posts">
-    <button id="new-post-button"><a href="/post">Escrever post</a></button>
+    <div>
+        <button id="new-post-button"><a href="/post">Escrever post</a></button>
+    </div>
+
+    <h2>Posts</h2>
     {% for post in posts %}
-        <div>
-            <h2>autor: {{ post.author }}</h2>
-            <p>{{ post.body }}</p>
-        </div>
+    <div class="post">
+        <h3>autor: {{ post.author }}</h3>
+        <p>{{ post.body }}</p>
+    </div>
     {% endfor %}
 </section>
 </main>

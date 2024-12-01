@@ -2,12 +2,12 @@
 
 {% block content %}
 <main class="center-main">
-    <form action="/post" method="post">
+    <form action="/post" method="post" id="post-form">
         <div>
             <label for="body"></label>
             <textarea name="body" placeholder="post"></textarea>
         </div>
-        <div>
+        <div class="center-itens-box-parent">
             <button type="submit">Postar</button>
         </div>
     </form>
